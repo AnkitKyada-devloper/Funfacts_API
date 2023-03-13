@@ -2,14 +2,12 @@
 <html>
 
 <head>
-    <title>Hi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
     .container {
         margin-left: 5px;
         padding-top: 5px;
         float: center;
-
     }
 
     textarea {
@@ -24,13 +22,13 @@
 </head>
 
 <body>
-    <table class="container">
-        <img src="{{storage_path('app\public\openeye.jfif')}}" style="width:120px;  marging-left:1px; padding-top:4px">
+<img src="{{storage_path('\app\public\openeyes.jfif')}}"style="width:120px;  marging-left:1px; padding-top:4px">
 
+    <table class="container">
         <h1 align="center">New Family Member
             <br>
             <br>
-            <img src="{{ public_path('reports/'.$query->photo ) }}" style="width:220px; height:220px; " >
+            <img src="{{ public_path('reports/'.$query->photo) }}" style="width:220px; height:220px; ">
             <br>
             {{$query->full_name}}
         </h1>

@@ -10,10 +10,12 @@
         <div style="margin:50px auto;width:80%;padding:20px 0">
             <div style="border-bottom:5px solid #eee">
             </div>
-            <p>New Member in OpenEyes Family -Ankit Kyada Intern - Products and Project</p>
-            <p style="font-size:15px">Hi Team,
-                I’d like to introduce Ankit Kyada, who joined our company on date, Today as Intern – Products and Project.
-                He will be working closely with Mihir Sir and development team on daily basis. Ankit is pursuing B.Tech
+            <p>New Member in OpenEyes Family -{{$mailData['full_name']}} Intern-Products and Project</p>
+            <p style="font-size:15px">Hi Team,<br>
+                I’d like to introduce {{$mailData['full_name']}}, joined our company on {{$mailData['date']}}, Today as
+                Intern – Products and Project.
+                He will be working closely with Mihir Sir and development team on daily basis.
+                {{$mailData['full_name']}} is pursuing B.Tech
                 from Parul University- Vadodara. He is excited to test our new approach that will include him as a new
                 intern in development department.
                 To better understand him personally, we had a pop-quiz earlier. Please find the interesting facts about

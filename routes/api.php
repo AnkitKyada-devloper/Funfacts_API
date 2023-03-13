@@ -18,9 +18,7 @@ use App\Http\Controllers\Funfacts_responseController;
 |
 */
 
-
 Route::get('/getData', [QuestionsController::class, 'getData']);
-// Route::post('/add', [FunfactsController::class, 'add']);
 Route::post('/addResponse/{id}', [Funfacts_responseController::class, 'addAnswer']);
 Route::post('/addDetails', [FunfactsController::class, 'add']);
-Route::get('/sendpdf', [Funfacts_responseController::class, 'createSendPdf']);
+// Route::get('/sendpdf/{id}', [Funfacts_responseController::class, 'createSendPdf']);

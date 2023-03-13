@@ -13,13 +13,15 @@ class sendmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $detailespdf;
+    public  $mailData;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($detailespdf)
+    public function __construct($detailespdf,$mailData)
     {
         $this->detailespdf = $detailespdf;
+        $this->mailData = $mailData;
     }
 
      /**
@@ -29,7 +31,7 @@ class sendmail extends Mailable
      */
     public function build()
     {
-            return $this->subject('OpenEyes Funfacts')->view('mail')->attachData($this->detailespdf->output(), 'fun facts.pdf');
+            return $this->subject('OpenEyes Funfacts')->view('mail')->attachData($this->detailespdf->output(),''.$this->mailData['full_name'].''.'-fun facts.pdf');
        
     }
     

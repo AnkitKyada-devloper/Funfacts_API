@@ -20,7 +20,7 @@
     }
     </style>
 </head>
-
+<!-- h -->
 <body>
 <img src="{{storage_path('\app\public\openeyes.jfif')}}"style="width:120px;  marging-left:1px; padding-top:4px">
 

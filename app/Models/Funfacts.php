@@ -10,5 +10,5 @@ class Funfacts extends Model
     use HasFactory;
     protected $table = 'funfacts';
     protected $primarykey = 'id';
-    protected $fillable = ['full_name','photo','date'];
+    protected $fillable = ['full_name','designation','photo','date'];
 }

@@ -1,47 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-    .container {
-        margin-left: 5px;
-        padding-top: 5px;
-        float: center;
+    body {
+        margin: 0;
     }
 
-    textarea {
-        font-family: "Lucida Console", "Courier New", monospace;
-        font-style: normal;
-        font-size: 18px;
-        margin-left: 5px;
-        height: 30px;
-        padding-top: -100px;
+    body div {
+        font-family: "Calibri", sans-serif;
+        font-size: 16px;
+        color: #3a3a3a;
+    }
+
+    .header {
+        overflow: hidden;
+        background-color: #f1f1f1;
+        padding: 20px;
+        height: 65px;
+        border: 1px solid #e7e7e7;
+    }
+
+    .logo {
+        float: left;
+    }
+
+    .title {
+        float: right;
+        text-align: right;
+    }
+
+    .title h1 {
+        margin: 13px 0 0 0;
+    }
+
+    .user-details {
+        width: 100%;
+        color: #3a3a3a;
+        text-align: center;
+        margin: 25px 0px;
+    }
+
+    .questions {
+        background: #fff;
+        padding: 25px;
+        border: 1px solid #e7e7e7;
+        box-shadow: rgb(0 0 0 / 5%) 0px 6px 24px 0px,
+            rgb(0 0 0 / 8%) 0px 0px 0px 1px;
+    }
+
+    .questions h3 {
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+
+    .questions p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 22px;
     }
     </style>
 </head>
 
 <body>
-<img src="{{storage_path('\app\public\openeyes.jfif')}}"style="width:120px;  marging-left:1px; padding-top:4px">
-
-    <table class="container">
-        <h1 align="center">New Family Member
-            <br>
-            <br>
-            <img src="{{ public_path('reports/'.$query->photo) }}" style="width:220px; height:220px; ">
-            <br>
-            {{$query->full_name}}
-        </h1>
-        @foreach($users as $user)
-        <tr>
-            <th align="left">
-                <textarea>{{$user->id}}. {{$user->qustion_text }}
-                </textarea>
-                <p style="color:Red;"> <textarea>Ans.{{$user->answer_text}}</textarea></p>
-            </th>
-        <tr>
-            @endforeach
-    </table>
+    <div>
+        <!-- Header Logo -->
+        <div class="header">
+            <div class="logo">
+                <img alt="logo" src="https://theopeneyes.com/assets/images/logo-black.png" />
+            </div>
+            <div class="title">
+                <h1>OpenEyes Funfacts</h1>
+            </div>
+        </div>
+        <!-- User Details -->
+        <div class="user-details">
+            <strong>New Family Member </strong>
+            <span style="margin: 20px 0px 7px 0px; display: block">
+                <img alt="logo" src="{{ public_path('reports/'.$query->photo) }}" />
+            </span>
+            <strong>{{$query->full_name}}</strong>
+            <span style="display: block; font-size: 14px; margin-top: 5px">{{$query->designation}}</span>
+        </div>
+        <div>
+            <table cellspacing="0"
+                style="margin: 0 auto; color: #3a3a3a; border-collapse:separate; border-spacing:15px; ">
+                <tbody>
+                    @foreach($users as $user)
+                    <tr>
+                        <td class="questions">
+                            <h3>{{$user->questions_id}}. {{$user->qustion_text }}</h3>
+                            <p>
+                                Answer: {{$user->answer_text}}
+                            </p>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 </body>
 
 </html>

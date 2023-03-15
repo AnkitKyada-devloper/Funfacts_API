@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 use App\Models\Funfacts;
 use Illuminate\Http\Request;
 use TheSeer\Tokenizer\Exception;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -18,22 +18,24 @@ class FunfactsController extends Controller
                 $request->all(),
                 [
                     'full_name' => 'required',
-                    'photo'=> 'required|mimes:png,jpeg,jpg,jfif'
+                    'designation' => 'required',
+                    'photo' => 'required|mimes:png,jpeg,jpg,jfif'
                 ]
             );
 
             if ($validator->fails()) {
                 return response()->json(['code' => 422, 'message' => $validator->errors()], 422);
             }
- 
+
             $funfacts = new Funfacts;
             $funfacts->full_name = $request->full_name;
             $funfacts->date = Carbon::now();
+            $funfacts->designation = $request->designation;
 
             if ($request->hasfile('photo')) {
                 $file = $request->file('photo');
-                $xyz = $file->getClientOriginalName();
-                $filename = time() . '.' . $xyz;
+                $data = $file->getClientOriginalName();
+                $filename = time() . '.' . $data;
                 $file->move('reports/', $filename);
                 $funfacts->photo = $filename;
             }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('funfacts', function (Blueprint $table) {
             $table->id();
             $table->string('full_name',250);
+            $table->string('designation',250);
             $table->string('photo');
             $table->date('date');
             $table->timestamps();
